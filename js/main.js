@@ -1,9 +1,36 @@
-fetch("../json/currencies.json")
-  .then(res => res.json())
-  .then(currencyJson => {
-    bulidOptions(currencyJson.results);
-  })
-  .catch(err => console.log(err));
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("../sw.js")
+    .then(() => console.log("Service worker registered"));
+}
+
+if ("caches" in window) {
+  caches
+    .match("https://free.currencyconverterapi.com/api/v5/currencies")
+    .then(res => {
+      if (res) {
+        res.json().then(json => {
+          console.log('Fetching form cache...')
+          bulidOptions(json.results)
+        });
+      } else {
+        fetchFromApi();
+      }
+    });
+} else {
+  console.log('Fetching form API...')
+  fetchFromApi();
+}
+
+function fetchFromApi() {
+  // fetch("../json/currencies.json")
+  fetch("https://free.currencyconverterapi.com/api/v5/currencies")
+    .then(res => res.json())
+    .then(currencyJson => {
+      bulidOptions(currencyJson.results);
+    })
+    .catch(err => console.log(err));
+}
 
 function bulidOptions(currencies) {
   selectFrom(currencies);
