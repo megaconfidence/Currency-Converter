@@ -1,6 +1,6 @@
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
-    .register("../sw.js")
+    .register('/Currency-Converter/sw.js', {scope: '/Currency-Converter/'})
     .then(() => console.log("Service worker registered"));
 }
 
