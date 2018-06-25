@@ -1,5 +1,3 @@
-
-
 let cacheName = 'Currency_Converter_v1';
 let dataCacheName = 'Currency_Converter_v1_Data';
 let filesToCache = [
