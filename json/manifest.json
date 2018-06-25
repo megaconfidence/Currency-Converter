@@ -2,19 +2,19 @@
   "name": "Currency Converter",
   "short_name": "Currency Converter",
   "icons": [{
-      "src": "/images/icons/icon-48x48.png",
+      "src": "https://github.com/Confidence-Okoghenun/Currency-Converter/blob/master/images/icons/icon-48x48.png?raw=true",
       "sizes": "48x48",
       "type": "image/png"
     }, {
-      "src": "/images/icons/icon-96x96.png",
+      "src": "https://github.com/Confidence-Okoghenun/Currency-Converter/blob/master/images/icons/icon-96x96.png?raw=true",
       "sizes": "96x96",
       "type": "image/png"
     }, {
-      "src": "/images/icons/icon-128x128.png",
+      "src": "https://raw.githubusercontent.com/Confidence-Okoghenun/Currency-Converter/master/images/icons/icon-128x128.png",
       "sizes": "128x128",
       "type": "image/png"
     }, {
-      "src": "/images/icons/icon-144x144.png",
+      "src": "https://github.com/Confidence-Okoghenun/Currency-Converter/blob/master/images/icons/icon-144x144.png?raw=true",
       "sizes": "144x144",
       "type": "image/png"
     }, {
@@ -34,7 +34,7 @@
       "sizes": "512x512",
       "type": "image/png"
     }],
-  "start_url": "/index.html",
+  "start_url": "https://confidence-okoghenun.github.io/Currency-Converter/",
   "display": "standalone",
   "background_color": "#3E4EB8",
   "theme_color": "#2F3BA2"
