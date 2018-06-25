@@ -6,7 +6,8 @@ let filesToCache = [
   '/Currency-Converter/css/style.css',
   '/Currency-Converter/js/localforage.js',
   '/Currency-Converter/js/main.js',
-  '/Currency-Converter/json/currencies.json'
+  '/Currency-Converter/json/currencies.json',
+  '/Currency-Converter/json/manifest.json'
 ];
 // let filesToCache = [
 //   '/',
