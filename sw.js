@@ -1,13 +1,21 @@
 let cacheName = 'Currency_Converter_v1';
 let dataCacheName = 'Currency_Converter_v1_Data';
 let filesToCache = [
-  '/',
-  '/index.html',
-  '/css/style.css',
-  '/js/localforage.js',
-  '/js/main.js',
-  '/json/currencies.json'
+  '/Currency-Converter/',
+  '/Currency-Converter/index.html',
+  '/Currency-Converter/css/style.css',
+  '/Currency-Converter/js/localforage.js',
+  '/Currency-Converter/js/main.js',
+  '/Currency-Converter/json/currencies.json'
 ];
+// let filesToCache = [
+//   '/',
+//   '/index.html',
+//   '/css/style.css',
+//   '/js/localforage.js',
+//   '/js/main.js',
+//   '/json/currencies.json'
+// ];
 
 let currencyconverteAPIUrlBase = 'https://free.currencyconverterapi.com/api/v5/currencies';
 
