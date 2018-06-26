@@ -9,7 +9,8 @@ let filesToCache = [
   '/Currency-Converter/js/materialize.js',
   '/Currency-Converter/js/main.js',
   '/Currency-Converter/json/currencies.json',
-  '/Currency-Converter/json/manifest.json'
+  '/Currency-Converter/json/manifest.json',
+  '/Currency-Converter/images/neo.jpg'
 ];
 // let filesToCache = [
 //   '/',
@@ -20,7 +21,8 @@ let filesToCache = [
 //   '/js/materialize.js',
 //   '/js/main.js',
 //   '/json/currencies.json',
-//   '/json/manifest.json'
+//   '/json/manifest.json',
+//   '/images/neo.jpg'
 // ];
 
 let currencyconverteAPIUrlBase = 'https://free.currencyconverterapi.com/api/v5/currencies';
