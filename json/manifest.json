@@ -36,6 +36,7 @@
     }],
   "start_url": "/Currency-Converter/index.html",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#3E4EB8",
   "theme_color": "#2F3BA2"
 }
