@@ -47,6 +47,8 @@ function selectFrom(currencies) {
       document.querySelector("#from_currency").appendChild(currOption);
     }
   }
+  let options = document.querySelectorAll('option');
+  initSelectForm(options);
 }
 function selectTo(currencies) {
   for (let currency in currencies) {
@@ -58,6 +60,8 @@ function selectTo(currencies) {
       document.querySelector("#to_currency").appendChild(currOption);
     }
   }
+  let options = document.querySelectorAll('option');
+  initSelectForm(options);
 }
 
 function hasProperty(val) {
@@ -70,6 +74,17 @@ function hasProperty(val) {
 
 document.querySelector("#convert").addEventListener("click", e => {
   e.preventDefault();
+  // document.querySelector('#loop').id = 'loop-icon';
+  document.querySelector("#convert").innerHTML = 'Converting<i id="loop-icon" class="material-icons right">autorenew</i>';
+  document.querySelector("#result").style.display = 'none';
+  let loader = document.querySelector('.progress');
+  loader.style.display = 'block';
+  setTimeout(() => {
+    loader.style.display = 'none';
+    document.querySelector("#convert").innerHTML = 'Convert<i id="loop" class="material-icons right">autorenew</i>';
+    document.querySelector("#result").style.display = 'block';
+
+  },3000)
   let currency1 = document.querySelector("#from_currency").value;
   let currency2 = document.querySelector("#to_currency").value;
   //checks if item is in indexedDB and makes a decision based on outcome
@@ -132,3 +147,10 @@ document.querySelector("#convert").addEventListener("click", e => {
     }
   }
 });
+
+//materialize css plugins
+//plugin for select
+function initSelectForm(options) {
+  var elems = document.querySelectorAll('select');
+  var instances = M.FormSelect.init(elems, options);
+}

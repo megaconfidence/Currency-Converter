@@ -3,8 +3,10 @@ let dataCacheName = 'Currency_Converter_v1_Data';
 let filesToCache = [
   '/Currency-Converter/',
   '/Currency-Converter/index.html',
+  '/Currency-Converter/css/materialize.css',
   '/Currency-Converter/css/style.css',
   '/Currency-Converter/js/localforage.js',
+  '/Currency-Converter/js/materialize.js',
   '/Currency-Converter/js/main.js',
   '/Currency-Converter/json/currencies.json',
   '/Currency-Converter/json/manifest.json'
@@ -12,10 +14,13 @@ let filesToCache = [
 // let filesToCache = [
 //   '/',
 //   '/index.html',
+//   '/css/materialize.css',
 //   '/css/style.css',
 //   '/js/localforage.js',
+//   '/js/materialize.js',
 //   '/js/main.js',
-//   '/json/currencies.json'
+//   '/json/currencies.json',
+//   '/json/manifest.json'
 // ];
 
 let currencyconverteAPIUrlBase = 'https://free.currencyconverterapi.com/api/v5/currencies';
