@@ -155,6 +155,12 @@ function initSelectForm(options) {
   var instances = M.FormSelect.init(elems, options);
 }
 //install PWA
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  btnAdd.style.display = 'block';
+});
+
 let installPromptEvent;
 
 window.addEventListener('beforeinstallprompt', (event) => {
