@@ -2,7 +2,8 @@ body {
   background: #1488cc;
   background: -webkit-linear-gradient(to right, #2b32b2, #1488cc);
   background: linear-gradient(to right, #2b32b2, #1488cc);
-  padding-top: 8%;
+  padding-top: 5px;
+  text-align: center;
 }
 .progress {
   display: none;
@@ -35,4 +36,19 @@ body {
 }
 #btn-div {
   padding: 0 10px;
+}
+@media (max-width: 599px) {
+  .card .card-content {
+    padding: 0 15px 24px 15px;
+  }
+  #from-div, #to-div, #amount-div {
+    float: none;
+
+  }
+  #from-div, #to-div{
+    margin-top: 30px;
+  }
+  #btn-div {
+    margin-bottom: 0;
+  }
 }

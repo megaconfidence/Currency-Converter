@@ -127,10 +127,10 @@ document.querySelector("#convert").addEventListener("click", e => {
     if (stringedResult.includes(".")) {
       let resultArr = stringedResult.split(".");
       let part2 = `${resultArr[1][0]}${hasProperty(resultArr[1][1])}`;
-      let finalResult = Number(`${resultArr[0]}.${part2}`);
+      let finalResult = (`${resultArr[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.${part2}`);
       document.querySelector("#result").value = `${currency} ${finalResult}`;
     } else {
-      document.querySelector("#result").value = `${currency} ${calculateResult}`;
+      document.querySelector("#result").value = `${currency} ${calculateResult.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
     }
   }
 });
