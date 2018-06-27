@@ -1,7 +1,7 @@
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
-    .register('/Currency-Converter/sw.js', {scope: '/Currency-Converter/'})
-    // .register('../sw.js')
+    // .register('/Currency-Converter/sw.js', {scope: '/Currency-Converter/'})
+    .register('../sw.js')
     .then(() => console.log("Service worker registered"));
 }
 
@@ -154,30 +154,3 @@ function initSelectForm(options) {
   var elems = document.querySelectorAll('select');
   var instances = M.FormSelect.init(elems, options);
 }
-//install PWA
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  btnAdd.style.display = 'block';
-});
-
-let installPromptEvent;
-
-window.addEventListener('beforeinstallprompt', (event) => {
-  event.preventDefault();
-  installPromptEvent = event;
-  document.querySelector('#install-button').disabled = false;
-});
-
-// btnInstall.addEventListener('click', () => {
-//   document.querySelector('#install-button').disabled = true;
-//   installPromptEvent.prompt();
-//   installPromptEvent.userChoice.then((choice) => {
-//     if (choice.outcome === 'accepted') {
-//       console.log('User accepted the A2HS prompt');
-//     } else {
-//       console.log('User dismissed the A2HS prompt');
-//     }
-//     installPromptEvent = null;
-//   });
-// });

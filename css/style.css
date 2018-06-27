@@ -4,23 +4,22 @@ body {
   background: linear-gradient(to right, #2b32b2, #1488cc);
   padding-top: 8%;
 }
+.progress {
+  display: none;
+}
 #head-img{
   width: 120px;
   margin: auto;
 }
-.progress {
-  display: none;
-}
 #loop-icon {
   -webkit-animation: rotation 1s infinite linear;
 }
-
 @-webkit-keyframes rotation {
   from {
-      -webkit-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
   }
   to {
-      -webkit-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
   }
 }
 #result {

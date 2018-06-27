@@ -8,9 +8,8 @@ let filesToCache = [
   '/Currency-Converter/js/localforage.js',
   '/Currency-Converter/js/materialize.js',
   '/Currency-Converter/js/main.js',
-  '/Currency-Converter/json/currencies.json',
-  '/Currency-Converter/json/manifest.json',
-  '/Currency-Converter/images/neo.jpg'
+  '/Currency-Converter/manifest.json',
+  '/Currency-Converter/images/neo.png'
 ];
 // let filesToCache = [
 //   '/',
@@ -20,13 +19,13 @@ let filesToCache = [
 //   '/js/localforage.js',
 //   '/js/materialize.js',
 //   '/js/main.js',
-//   '/json/currencies.json',
 //   '/json/manifest.json',
 //   '/images/neo.jpg'
 // ];
 
 let currencyconverteAPIUrlBase = 'https://free.currencyconverterapi.com/api/v5/currencies';
 
+//cache site assets
 self.addEventListener('install',e => {
   console.log('[ServiceWorker] Install');
   e.waitUntil(
