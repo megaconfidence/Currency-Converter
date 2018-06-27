@@ -24,7 +24,7 @@ if ("caches" in window) {
 }
 
 function fetchFromApi() {
-  // fetch("../json/currencies.json")
+  // fetch("../currencies.json")
   fetch("https://free.currencyconverterapi.com/api/v5/currencies")
     .then(res => res.json())
     .then(currencyJson => {
@@ -40,10 +40,10 @@ function bulidOptions(currencies) {
 function selectFrom(currencies) {
   for (let currency in currencies) {
     if (currencies.hasOwnProperty(currency)) {
-      let currSym = hasProperty(currencies[currency].currencySymbol);
+      let currName = currencies[currency].currencyName;
       let currOption = document.createElement("option");
       currOption.setAttribute("value", currency);
-      currOption.textContent = `${currency} ${currSym}`;
+      currOption.textContent = `${currName} (${currency})`;
       document.querySelector("#from_currency").appendChild(currOption);
     }
   }
@@ -53,10 +53,10 @@ function selectFrom(currencies) {
 function selectTo(currencies) {
   for (let currency in currencies) {
     if (currencies.hasOwnProperty(currency)) {
-      let currSym = hasProperty(currencies[currency].currencySymbol);
+      let currName = currencies[currency].currencyName;
       let currOption = document.createElement("option");
       currOption.setAttribute("value", currency);
-      currOption.textContent = `${currency} ${currSym}`;
+      currOption.textContent = `${currName} (${currency})`;
       document.querySelector("#to_currency").appendChild(currOption);
     }
   }
@@ -74,79 +74,68 @@ function hasProperty(val) {
 
 document.querySelector("#convert").addEventListener("click", e => {
   e.preventDefault();
-  // document.querySelector('#loop').id = 'loop-icon';
   document.querySelector("#convert").innerHTML = 'Converting<i id="loop-icon" class="material-icons right">autorenew</i>';
   document.querySelector("#result").style.display = 'none';
-  let loader = document.querySelector('.progress');
-  loader.style.display = 'block';
+  let loader = document.querySelectorAll('.progress');
+  loader.forEach(ele => ele.style.display = 'block');
   setTimeout(() => {
-    loader.style.display = 'none';
+    loader.forEach(ele => ele.style.display = 'none');
     document.querySelector("#convert").innerHTML = 'Convert<i id="loop" class="material-icons right">autorenew</i>';
     document.querySelector("#result").style.display = 'block';
 
   },3000)
   let currency1 = document.querySelector("#from_currency").value;
   let currency2 = document.querySelector("#to_currency").value;
+
+
   //checks if item is in indexedDB and makes a decision based on outcome
   localforage
     .getItem(`${currency1}_${currency2}`)
     .then(value => {
       if (value) {
+        //gets value from indexedDB and renders it
         console.log("Getting from DB...");
-        getFromIndexedDB(value);
+        showResult(value);
       } else {
+        //gets value from net api saves and renders it
         console.log("Getting from net...");
-        getFromNet();
+        fetch(
+          `https://free.currencyconverterapi.com/api/v5/convert?q=${currency1}_${currency2}&compact=y`
+        )
+          .then(res => res.json())
+          .then(resultJson => {
+            //save result to indexedDB
+            let value = resultJson[`${currency1}_${currency2}`].val;
+            localforage
+            .setItem(`${currency1}_${currency2}`, value)
+            .then(value => console.log(`Saved ${value} to DB`))
+            .catch(err => console.log(err));
+    
+            showResult(value);
+          })
+          .catch(err => console.log(err));
       }
     })
     .catch(err => console.log(err));
 
-  //gets value from indexedDB and renders it
-  function getFromIndexedDB(gottenValue) {
+  function showResult(result) {
+    let currency = document.querySelector("#to_currency").value
+    
     let calculateResult =
-      document.querySelector("#from_value").value * gottenValue;
+      document.querySelector("#from_value").value * result;
     let stringedResult = calculateResult.toString();
     if (stringedResult.includes(".")) {
       let resultArr = stringedResult.split(".");
       let part2 = `${resultArr[1][0]}${hasProperty(resultArr[1][1])}`;
       let finalResult = Number(`${resultArr[0]}.${part2}`);
-      document.querySelector("#result").value = finalResult;
+      document.querySelector("#result").value = `${currency} ${finalResult}`;
     } else {
-      document.querySelector("#result").value = calculateResult;
-    }
-  }
-  //gets value from net api saves and renders it
-  function getFromNet() {
-    fetch(
-      `https://free.currencyconverterapi.com/api/v5/convert?q=${currency1}_${currency2}&compact=y`
-    )
-      .then(res => res.json())
-      .then(resultJson => {
-        showResult(resultJson[`${currency1}_${currency2}`].val);
-      })
-      .catch(err => console.log(err));
-
-    function showResult(result) {
-      //save result to indexedDB
-      localforage
-        .setItem(`${currency1}_${currency2}`, result)
-        .then(value => console.log(`Saved ${value} to DB`))
-        .catch(err => console.log(err));
-
-      let calculateResult =
-        document.querySelector("#from_value").value * result;
-      let stringedResult = calculateResult.toString();
-      if (stringedResult.includes(".")) {
-        let resultArr = stringedResult.split(".");
-        let part2 = `${resultArr[1][0]}${hasProperty(resultArr[1][1])}`;
-        let finalResult = Number(`${resultArr[0]}.${part2}`);
-        document.querySelector("#result").value = finalResult;
-      } else {
-        document.querySelector("#result").value = calculateResult;
-      }
+      document.querySelector("#result").value = `${currency} ${calculateResult}`;
     }
   }
 });
+
+
 
 //materialize css plugins
 //plugin for select

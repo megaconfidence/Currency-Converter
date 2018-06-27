@@ -25,46 +25,60 @@
 </head>
 
 <body>
-
-
     <div class="container">
         <div class="card">
+            <div class="progress-div">
                 <div class="progress blue">
-                        <div class="indeterminate red"></div>
-                    </div>
+                    <div class="indeterminate red"></div>
+                </div>
+            </div>
             <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" id="head-img" src="images/neo.png">
             </div>
             <div class="card-content">
+
                 <span class="card-title activator grey-text text-darken-4">Currency Converter
                     <i class="material-icons right">info_outline</i>
                 </span>
-                <div>
-                    <form >
-                        <div class="input-field col s12">
-                            <label for="from_value">From</label>
-                            <input type="number" name="" id="from_value" value="1">
+
+                    <form>
+                        <div class="row">
+                            <div class="input-field col m6">
+                                <select id="from_currency">
+                                    <option value="" disabled selected>Convert From Currency</option>
+                                </select>
+                                <label for="from_currency">From</label>
+                            </div>
+
+                            <div class="input-field col m6">
+                                <select id="to_currency">
+                                    <option value="" disabled selected>Convert To Currency</option>
+                                </select>
+                                <label for="to_currency">To</label>
+                            </div>
                         </div>
-                        <div class="input-field col s12">
-                            <select id="from_currency">
-                                <option value="" disabled selected>Convert From Currency</option>
-                            </select>
+                        
+                        <div class="row">
+                            <div class="input-field col s12" id="amount-div">
+                                <input type="number" name="" id="from_value" value="1">
+                                <label for="from_value">Amount</label>
+                            </div>
                         </div>
 
-                        <div class="input-field col s12">
-                            <select id="to_currency">
-                                <option value="" disabled selected>Convert To Currency</option>
-                            </select>
-                            <label for="to_currency"> To</label>
+                        <div class="row" id="btn-div">
+                            <button class="btn waves-effect waves-light col s12" id="convert">Convert
+                                <i id="loop" class="material-icons right">autorenew</i>
+                            </button>
                         </div>
 
-                      
-                        <button class="btn waves-effect waves-light"  id="convert">Convert<i id="loop" class="material-icons right">autorenew</i>
-                        </button>
-                        <input type="text" disabled id="result">
+                        <div class="row" id="result-div">
+                            <div class="input-field col s12">
+                                <input type="text" disabled id="result">
+                            </div>
+                        </div>
                     </form>
-                </div>
             </div>
+            
             <div class="card-action">
                 <a href="#">History</a>
             </div>
@@ -73,6 +87,11 @@
                     <i class="material-icons right">close</i>
                 </span>
                 <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            </div>
+            <div class="progress-div">
+                <div class="progress blue">
+                    <div class="indeterminate red"></div>
+                </div>
             </div>
         </div>
     </div>

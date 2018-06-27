@@ -6,6 +6,10 @@ body {
 }
 .progress {
   display: none;
+  margin: 0;
+}
+.progress-div {
+  height: 4px;
 }
 #head-img{
   width: 120px;
@@ -24,4 +28,11 @@ body {
 }
 #result {
   display: none;
+  margin: 0;
+}
+#result-div {
+  height: 3rem;
+}
+#btn-div {
+  padding: 0 10px;
 }
