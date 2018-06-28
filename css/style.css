@@ -57,7 +57,7 @@ body {
 }
 #history-card {
   display: none;
-  height: 453px;
+  height: 447px;
   text-align: center;
   font-size: 1.2em;
 }
@@ -70,4 +70,7 @@ li {
  #history-ol {
   text-align: left;
   padding-right: 5%;
+}
+#select-row {
+  margin-bottom: 0;
 }
