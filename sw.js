@@ -9,21 +9,9 @@ let filesToCache = [
   '/Currency-Converter/js/materialize.js',
   '/Currency-Converter/js/main.js',
   '/Currency-Converter/manifest.json',
+  '/Currency-Converter/js/currencies.json',
   '/Currency-Converter/images/neo.png'
 ];
-// let filesToCache = [
-//   '/',
-//   '/index.html',
-//   '/css/materialize.css',
-//   '/css/style.css',
-//   '/js/localforage.js',
-//   '/js/materialize.js',
-//   '/js/main.js',
-//   '/json/manifest.json',
-//   '/images/neo.jpg'
-// ];
-
-let currencyconverteAPIUrlBase = 'https://free.currencyconverterapi.com/api/v5/currencies';
 
 //cache site assets
 self.addEventListener('install',e => {
@@ -48,27 +36,4 @@ self.addEventListener('activate', e => {
       }));
     })
   );
-});
-
-
-self.addEventListener('fetch', function(e) {
-  if (e.request.url.startsWith(currencyconverteAPIUrlBase)) {
-    e.respondWith(
-      fetch(e.request)
-        .then(function(response) {
-          return caches.open(dataCacheName).then(function(cache) {
-            cache.put(e.request.url, response.clone());
-            console.log('[ServiceWorker] Fetched & Cached', e.request.url);
-            return response;
-          });
-        })
-    );
-  } else {
-    e.respondWith(
-      caches.match(e.request).then(function(response) {
-        console.log('[ServiceWorker] Fetch Only', e.request.url);
-        return response || fetch(e.request);
-      })
-    );
-  }
 });

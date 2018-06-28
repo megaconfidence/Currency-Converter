@@ -3,42 +3,17 @@ let $$ = document.querySelectorAll.bind(document);
 
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
-  // .register("../sw.js")
   .register('/Currency-Converter/sw.js', {scope: '/Currency-Converter/'})
   .then(() => console.log("Service worker registered"));
 }
 
-//check if app data is cached else fetch from API
-if ("caches" in window) {
-  caches
-  .match("https://free.currencyconverterapi.com/api/v5/currencies")
-  .then(res => {
-
-    if (res) {
-      res.json().then(json => {
-        console.log("Fetching app data form cache...");
-        bulidOptions(json.results);
-      });
-    } else {
-      fetchFromApi();
-    }
-
-  });
-} else {
-  console.log("Fetching app data form API...");
-  fetchFromApi();
-}
-
-function fetchFromApi() {
-
-  // fetch("../currencies.json")
-  fetch("https://free.currencyconverterapi.com/api/v5/currencies")
-  .then(res => res.json())
-  .then(currencyJson => {
-    bulidOptions(currencyJson.results);
-  })
-  .catch(err => console.log(err));
-}
+//fetch data
+fetch("../currencies.json")
+.then(res => res.json())
+.then(currencyJson => {
+  bulidOptions(currencyJson.results);
+})
+.catch(err => console.log(err));
 
 function bulidOptions(currencies) {
   bulidCurrencyArr(currencies);
