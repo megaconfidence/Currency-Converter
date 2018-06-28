@@ -8,7 +8,7 @@ if ("serviceWorker" in navigator) {
 }
 
 //fetch data
-fetch("../currencies.json")
+fetch("../Currency-Converter/currencies.json")
 .then(res => res.json())
 .then(currencyJson => {
   bulidOptions(currencyJson.results);
