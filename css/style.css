@@ -5,16 +5,22 @@ body {
   padding-top: 5px;
   text-align: center;
 }
+.progress-div {
+  height: 4px;
+}
 .progress {
   display: none;
   margin: 0;
 }
-.progress-div {
-  height: 4px;
-}
 #head-img{
   width: 120px;
   margin: auto;
+}
+#select-row {
+  margin-bottom: 0;
+}
+#btn-div {
+  padding: 0 10px;
 }
 #loop-icon {
   -webkit-animation: rotation 1s infinite linear;
@@ -27,15 +33,35 @@ body {
     -webkit-transform: rotate(359deg);
   }
 }
-#result {
-  display: none;
-  margin: 0;
-}
 #result-div {
   height: 3rem;
 }
-#btn-div {
-  padding: 0 10px;
+#copy-result {
+  display: none;
+}
+#result {
+  padding-left: 45px;
+  margin: 0;
+}
+.celebrate {
+  display: block;
+}
+#history-card {
+  display: none;
+  word-wrap: break-word;
+  text-align: center;
+  font-size: 1.2em;
+  background: white;
+}
+#history-close, #copy-icon {
+  cursor: pointer;
+}
+#history-ol {
+  text-align: left;
+  padding-right: 5%;
+}
+li {
+  padding-bottom: 0.5em;
 }
 @media (max-width: 599px) {
   .card .card-content {
@@ -51,26 +77,4 @@ body {
   #btn-div {
     margin-bottom: 0;
   }
-}
-.celebrate {
-  display: block;
-}
-#history-card {
-  display: none;
-  height: 447px;
-  text-align: center;
-  font-size: 1.2em;
-}
-#history-close {
-  cursor: pointer;
-}
-li {
-  padding-bottom: 0.5em;
-}
- #history-ol {
-  text-align: left;
-  padding-right: 5%;
-}
-#select-row {
-  margin-bottom: 0;
 }

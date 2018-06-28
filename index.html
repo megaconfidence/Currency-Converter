@@ -26,26 +26,20 @@
 
 <body>
     <div class="container">
-
-        <div class="card">
-
+        <div class="card main-card">
             <div class="progress-div">
                 <div class="progress blue">
                     <div class="indeterminate red"></div>
                 </div>
             </div>
-
             <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" id="head-img" src="images/neo.png">
             </div>
             <div id="calculate-card">
                 <div class="card-content">
-
                     <span class="card-title activator grey-text text-darken-4">&emsp;Currency Converter
                         <i class="material-icons right">info_outline</i>
                     </span>
-
-
                     <form>
                         <div class="row" id="select-row">
                             <div class="input-field col m6" id="from-div">
@@ -54,7 +48,6 @@
                                 </select>
                                 <label for="from_currency">From</label>
                             </div>
-
                             <div class="input-field col m6" id="to-div">
                                 <select id="to_currency">
                                     <option value="" disabled selected>Convert To Currency</option>
@@ -62,37 +55,32 @@
                                 <label for="to_currency">To</label>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="input-field col s12" id="amount-div">
                                 <input type="number" name="" id="from_value" value="1">
                                 <label for="from_value">Amount</label>
                             </div>
                         </div>
-
                         <div class="row" id="btn-div">
                             <button class="btn waves-effect waves-light red lighten-1" id="convert">Convert
                                 <i id="loop" class="material-icons right">autorenew</i>
                             </button>
                         </div>
-
                         <div class="row" id="result-div">
                             <div class="input-field col s12">
-                                <input type="text" disabled id="result">
+                                <div id="copy-result">
+                                    <i class="material-icons prefix" id="copy-icon">content_copy</i>
+                                    <input type="text" disabled  id="result">
+                                </div>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="card-action">
-
-                        <a href="#" id="history-btn">History</a>|
-                        <a href="https://github.com/Confidence-Okoghenun/Currency-Converter" id="history-btn" style="padding: 0 0 0 24px;">GitHub</a>
+                    <a href="#" id="history-btn">History</a>|
+                    <a href="https://github.com/Confidence-Okoghenun/Currency-Converter" id="history-btn" style="padding: 0 0 0 24px;">GitHub</a>
                 </div>
-
             </div>
-
-
-
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">
                     <i class="material-icons right">close</i>
@@ -106,42 +94,27 @@
                 </span>
                 <br>
                 <br>
-                <p>Currency converter is a simple progressive web app that converts money from one currency to another...and
-                    it works offline too. Click on the add to home screen button in your browser menu to install it 😉</p>
+                <p>Currency converter is a simple progressive web app that converts money from one currency to another...and it works offline too. Click on the add to home screen button in your browser menu to install it 😉</p>
                 <br>
                 <br>
                 <p>Made with ❤ and ☕ by Confidence Okoghenun (confidenceboi@gmail.com)</p>
             </div>
-
-            <!-- history -->
             <div class="row" id="history-card">
                 <div class="col s12">
-                    <!-- <div class="card"> -->
-                            <div class="center">
-                                    &emsp;&emsp;Conversion History
-                                <i class="material-icons right" id="history-close">close</i>
-                            </div>
-                        <ol id="history-ol">
-
-                        </ol>
-                    <!-- </div> -->
+                        <div class="center">
+                            &emsp;&emsp;Conversion History
+                            <i class="material-icons right" id="history-close">close</i>
+                        </div>
+                        <ol id="history-ol"></ol>
                 </div>
             </div>
-
             <div class="progress-div">
                 <div class="progress blue">
                     <div class="indeterminate red"></div>
                 </div>
             </div>
         </div>
-
-
-
-
-
     </div>
-
-
 
     <script src="js/localforage.js"></script>
     <script src="js/materialize.js"></script>
