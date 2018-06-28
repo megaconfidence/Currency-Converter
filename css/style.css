@@ -55,3 +55,19 @@ body {
 .celebrate {
   display: block;
 }
+#history-card {
+  display: none;
+  height: 453px;
+  text-align: center;
+  font-size: 1.2em;
+}
+#history-close {
+  cursor: pointer;
+}
+li {
+  padding-bottom: 0.5em;
+}
+ #history-ol {
+  text-align: left;
+  padding-right: 5%;
+}
