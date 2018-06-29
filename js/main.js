@@ -11,11 +11,9 @@ if ("serviceWorker" in navigator) {
 //fetch data
 if (('caches' in window)&&(caches.match("/Currency-Converter/js/currencies.json")["[[PromiseValue]]"] !== undefined)) {
   caches.match("/Currency-Converter/js/currencies.json")
-  .then(function(response) {
+  .then(response => {
     if (response) {
-      response.json().then(function(json) {
-        bulidOptions(json.results);
-      });
+      response.json().then(json => bulidOptions(json.results));
     }
   });
 } else {
@@ -222,7 +220,6 @@ $("#history-btn").addEventListener("click", () => {
         paragraph.textContent = hysItem;
         historyOl.insertAdjacentElement("beforeend", paragraph);
       });
-      console.log(value);
     })
     .catch(err => console.log(err));
 });

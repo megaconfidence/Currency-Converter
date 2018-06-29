@@ -41,12 +41,12 @@ self.addEventListener('activate', e => {
   );
 });
 
-self.addEventListener('fetch', function(e) {
+self.addEventListener('fetch', e => {
   if (e.request.url.startsWith(currencyAPIBase)) {
     e.respondWith(
       fetch(e.request)
-        .then(function(response) {
-          return caches.open(dataCacheName).then(function(cache) {
+        .then(response => {
+          return caches.open(dataCacheName).then(cache => {
             cache.put(e.request.url, response.clone());
             console.log('[ServiceWorker] Fetched & Cached', e.request.url);
             return response;
@@ -55,7 +55,7 @@ self.addEventListener('fetch', function(e) {
     );
   } else {
     e.respondWith(
-      caches.match(e.request).then(function(response) {
+      caches.match(e.request).then(response => {
         console.log('[ServiceWorker] Fetch Only', e.request.url);
         return response || fetch(e.request);
       })
