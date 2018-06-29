@@ -3,17 +3,31 @@ let $$ = document.querySelectorAll.bind(document);
 
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
+  // .register('/sw.js')
   .register('/Currency-Converter/sw.js', {scope: '/Currency-Converter/'})
   .then(() => console.log("Service worker registered"));
 }
 
 //fetch data
-fetch("../Currency-Converter/js/currencies.json")
-.then(res => res.json())
-.then(currencyJson => {
-  bulidOptions(currencyJson.results);
-})
-.catch(err => console.log(err));
+if (('caches' in window)&&(caches.match("/Currency-Converter/js/currencies.json")["[[PromiseValue]]"] !== undefined)) {
+  caches.match("/Currency-Converter/js/currencies.json")
+  .then(function(response) {
+    if (response) {
+      response.json().then(function(json) {
+        bulidOptions(json.results);
+      });
+    }
+  });
+} else {
+  fetch("../Currency-Converter/js/currencies.json")
+  .then(res => res.json())
+  .then(currencyJson => {
+    bulidOptions(currencyJson.results);
+  })
+  .catch(err => console.log(err));
+}
+
+
 
 function bulidOptions(currencies) {
   bulidCurrencyArr(currencies);
