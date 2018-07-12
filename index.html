@@ -2,6 +2,15 @@
 <html lang="en">
 
 <head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122321467-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-122321467-2');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -34,7 +43,7 @@
                 </div>
             </div>
             <div class="card-image waves-effect waves-block waves-light">
-                <img alt="head image"class="activator" id="head-img" src="images/neo.png">
+                <img alt="head image" class="activator" id="head-img" src="images/neo.png">
             </div>
             <div id="calculate-card">
                 <div class="card-content">
@@ -71,7 +80,7 @@
                             <div class="input-field col s12">
                                 <div id="copy-result">
                                     <i class="material-icons prefix" id="copy-icon">content_copy</i>
-                                    <input type="text" disabled  id="result">
+                                    <input type="text" disabled id="result">
                                 </div>
                             </div>
                         </div>
@@ -95,18 +104,19 @@
                 </span>
                 <br>
                 <br>
-                <p>Currency converter is a simple progressive web app that converts money from one currency to another...and it works offline too. Click on the add to home screen button in your browser menu to install it 😉</p>
+                <p>Currency converter is a simple progressive web app that converts money from one currency to another...and
+                    it works offline too. Click on the add to home screen button in your browser menu to install it 😉</p>
                 <br>
                 <br>
                 <p>Made with ❤ and ☕ by Confidence Okoghenun (confidenceboi@gmail.com)</p>
             </div>
             <div class="row" id="history-card">
                 <div class="col s12">
-                        <div class="center">
-                            &emsp;&emsp;Conversion History
-                            <i class="material-icons right" id="history-close">close</i>
-                        </div>
-                        <ol id="history-ol"></ol>
+                    <div class="center">
+                        &emsp;&emsp;Conversion History
+                        <i class="material-icons right" id="history-close">close</i>
+                    </div>
+                    <ol id="history-ol"></ol>
                 </div>
             </div>
             <div class="progress-div">
